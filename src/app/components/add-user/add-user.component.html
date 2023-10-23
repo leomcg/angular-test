@@ -1,0 +1,18 @@
+<form [formGroup]="userData" (submit)="onFormSubmit()">
+    <label for=" name">Name</label>
+    <div *ngIf="userData.get('name')?.invalid && userData.get('name')?.touched" class="error-message">
+        Name is required.
+    </div>
+    <input id="name" type="text" formControlName="name" [ngClass]="{
+      invalid: userData.get('name')?.invalid && userData.get('name')?.touched
+    }" />
+    <label for="age">Age</label>
+    <div *ngIf="userData.get('age')?.invalid && userData.get('age')?.touched" class="error-message">
+        Age is required.
+    </div>
+    <input id="age" type="number" formControlName="age" [ngClass]="{
+      invalid: userData.get('age')?.invalid && userData.get('age')?.touched
+    }" />
+    <button class="custom-button" [ngClass]="{ 'disabled-button': userData.invalid }" type="submit"
+        [disabled]="userData.invalid">Add User</button>
+</form>

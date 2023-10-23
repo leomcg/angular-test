@@ -1,0 +1,4 @@
+<button class="custom-button" [ngClass]="buttonClass" [type]="type" [disabled]="disabled" (click)="onClick"
+    [ngClass]="{ 'disabled-button': disabled }">
+    <ng-content></ng-content>
+</button>
